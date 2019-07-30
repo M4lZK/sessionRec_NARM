@@ -347,10 +347,10 @@ def train_gru(
     dim_proj=50,  # word embeding dimension
     hidden_units=100,  # GRU number of hidden units.
     patience=100,  # Number of epoch to wait before early stop if no progress
-    max_epochs=30,  # The maximum number of epoch to run
+    max_epochs=10,  # The maximum number of epoch to run
     dispFreq=100,  # Display to stdout the training progress every N updates
     lrate=0.001,  # Learning rate
-    n_items=37484,  # Vocabulary size
+    n_items=4546,  # Vocabulary size
     encoder='gru',  # TODO: can be removed must be gru.
     saveto='gru_model.npz',  # The best model will be saved there
     is_valid=True,  # Compute the validation error after this number of update.
@@ -437,7 +437,6 @@ def train_gru(
                 # Return something of shape (minibatch maxlen, n samples)
                 x, mask, y = prepare_data(x, y)
                 n_samples += x.shape[1]
-
                 loss = train_function(x, mask, y)
                 epoch_loss.append(loss)
 

@@ -33,7 +33,7 @@ def prepare_data(seqs, labels):
     return x, x_mask, labels
 
 
-def load_data(valid_portion=0.1, maxlen=19, sort_by_len=False):
+def load_data(valid_portion=0.1, maxlen=None, sort_by_len=False):
     '''Loads the dataset
 
     :type path: String
@@ -58,8 +58,8 @@ def load_data(valid_portion=0.1, maxlen=19, sort_by_len=False):
     #############
 
     # Load the dataset
-    path_train_data = ''
-    path_test_data = ''
+    path_train_data = 'train.p'
+    path_test_data = 'test.p'
 
     f1 = open(path_train_data, 'rb')
     train_set = pickle.load(f1)
